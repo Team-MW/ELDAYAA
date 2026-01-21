@@ -462,10 +462,63 @@ button {
     color: var(--text-muted);
 }
 
+/* Infinite Banner */
+.infinite-banner {
+    width: 100%;
+    overflow: hidden;
+    background: var(--bg-dark);
+    padding: 40px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.banner-track {
+    display: flex;
+    width: fit-content;
+    animation: infiniteScroll 40s linear infinite;
+    gap: 30px;
+    padding: 0 15px;
+}
+
+.banner-item {
+    flex: 0 0 300px;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s ease;
+}
+
+.banner-item:hover {
+    transform: scale(1.05);
+    border-color: var(--primary);
+}
+
+.banner-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes infiniteScroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-300px * 6 - 30px * 6));
+    }
+}
+
 /* About Section */
 .about-section {
     padding: 100px 0;
-    background: #0d0d0d;
+    position: relative;
+    background-image: linear-gradient(rgba(17, 17, 17, 0.3), rgba(17, 17, 17, 0.3)), url('./assets/bacground2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .about-grid {

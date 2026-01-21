@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import {
     BrowserRouter as Router,
     Routes,
@@ -22,6 +22,7 @@ import {
     Coffee,
     ExternalLink
 } from 'lucide-react';
+import foodImage from './assets/side-view-chebureks-kutab-fried-chebureks-with-cheese-herbs-meat-with-sauce-dark-wooden-table.jpg';
 
 // --- Mentions Légales Component ---
 const MentionsLegales = () => {
@@ -138,6 +139,7 @@ const formulaData = [
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const { scrollYProgress } = useScroll();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -148,46 +150,62 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-            <div className="container nav-content">
-                <Link to="/" className="logo-container" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                    <div className="logo-circle">
-                        <span className="logo-tree">🌲</span>
-                    </div>
-                    <div className="logo-text">
-                        <span className="logo-name">EL DAYAA</span>
-                        <span className="logo-tag">MAISON LIBANAISE</span>
-                    </div>
-                </Link>
+        <>
+            <motion.div
+                className="scroll-progress"
+                style={{
+                    scaleX: scrollYProgress,
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: '3px',
+                    background: 'var(--primary)',
+                    transformOrigin: '0%',
+                    zIndex: 2000
+                }}
+            />
+            <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+                <div className="container nav-content">
+                    <Link to="/" className="logo-container" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                        <div className="logo-circle">
+                            <span className="logo-tree">🌲</span>
+                        </div>
+                        <div className="logo-text">
+                            <span className="logo-name">EL DAYAA</span>
+                            <span className="logo-tag">MAISON LIBANAISE</span>
+                        </div>
+                    </Link>
 
-                <div className="desktop-links">
-                    <a href="#home">Accueil</a>
-                    <a href="#menu">La Carte</a>
-                    <a href="#about">Notre Histoire</a>
-                    <a href="#contact" className="btn-primary">Réserver</a>
+                    <div className="desktop-links">
+                        <a href="#home">Accueil</a>
+                        <a href="#menu">La Carte</a>
+                        <a href="#about">Notre Histoire</a>
+                        <a href="#contact" className="btn-primary">Réserver</a>
+                    </div>
+
+                    <button className="mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                        {isMobileMenuOpen ? <X /> : <MenuIcon />}
+                    </button>
                 </div>
 
-                <button className="mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-                    {isMobileMenuOpen ? <X /> : <MenuIcon />}
-                </button>
-            </div>
-
-            <AnimatePresence>
-                {isMobileMenuOpen && (
-                    <motion.div
-                        className="mobile-menu"
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                    >
-                        <a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Accueil</a>
-                        <a href="#menu" onClick={() => setIsMobileMenuOpen(false)}>La Carte</a>
-                        <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>Notre Histoire</a>
-                        <a href="#contact" className="btn-primary" onClick={() => setIsMobileMenuOpen(false)}>Réserver</a>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </nav>
+                <AnimatePresence>
+                    {isMobileMenuOpen && (
+                        <motion.div
+                            className="mobile-menu"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                        >
+                            <a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Accueil</a>
+                            <a href="#menu" onClick={() => setIsMobileMenuOpen(false)}>La Carte</a>
+                            <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>Notre Histoire</a>
+                            <a href="#contact" className="btn-primary" onClick={() => setIsMobileMenuOpen(false)}>Réserver</a>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </nav>
+        </>
     );
 };
 
@@ -325,7 +343,14 @@ const MenuSection = () => {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: idx * 0.1 }}
-                            whileHover={{ y: -10, scale: 1.02 }}
+                            whileHover={{
+                                y: -10,
+                                scale: 1.05,
+                                rotateX: 2,
+                                rotateY: 2,
+                                boxShadow: "0 20px 40px rgba(0,0,0,0.4), 0 0 20px rgba(196, 30, 58, 0.2)"
+                            }}
+                            style={{ perspective: 1000 }}
                         >
                             <div className="formula-header">
                                 <h3>{formula.name}</h3>
@@ -341,6 +366,32 @@ const MenuSection = () => {
     );
 };
 
+const InfiniteBanner = () => {
+    const images = [
+        "https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&q=80&w=400",
+        "https://images.unsplash.com/photo-1628294895950-9805252327bc?auto=format&fit=crop&q=80&w=400",
+        "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=400",
+        "https://images.unsplash.com/photo-1593001874117-c99c800e3eb7?auto=format&fit=crop&q=80&w=400",
+        "https://images.unsplash.com/photo-1547928576-a4a33237ce35?auto=format&fit=crop&q=80&w=400",
+        "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&q=80&w=400"
+    ];
+
+    // Duplicate list to ensure seamless transition
+    const infiniteImages = [...images, ...images];
+
+    return (
+        <div className="infinite-banner">
+            <div className="banner-track">
+                {infiniteImages.map((src, idx) => (
+                    <div key={idx} className="banner-item">
+                        <img src={src} alt={`Lebanese Dish ${idx}`} />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
 const About = () => {
     return (
         <section id="about" className="about-section">
@@ -353,7 +404,7 @@ const About = () => {
             >
                 <div className="about-image">
                     <div className="image-frame">
-                        <img src="https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&q=80&w=800" alt="Lebanese Food" />
+                        <img src={foodImage} alt="Lebanese Food" />
                     </div>
                     <div className="experience-badge">
                         <span className="years">70</span>
@@ -361,17 +412,11 @@ const About = () => {
                     </div>
                 </div>
                 <div className="about-content">
-                    <span className="script-font gold">Depuis 1955</span>
-                    <h2>L'histoire de la famille El Dayaa</h2>
-                    <p>
-                        Tout a commencé dans la région de la Bekaa, où les recettes familiales se transmettaient de génération en génération. El Dayaa, qui signifie "Le Village" en arabe, est né de la volonté de préserver ces saveurs authentiques.
+                    <span className="script-font gold">Notre Héritage</span>
+                    <h2>L'histoire d'une Passion</h2>
+                    <p style={{ fontSize: '1.5rem', lineHeight: '1.4', color: 'var(--text-main)', fontStyle: 'italic' }}>
+                        "L'authenticité de la cuisine libanaise, transmise avec amour de génération en génération depuis 1955."
                     </p>
-                    <p>
-                        Aujourd'hui, nous perpétuons cet héritage en utilisant des produits frais, des épices sélectionnées avec soin et une passion restée intacte. Venez goûter à l'hospitalité légendaire du Liban.
-                    </p>
-                    <div className="signature">
-                        <p className="script-font">La Famille El Dayaa</p>
-                    </div>
                 </div>
             </motion.div>
         </section>
@@ -511,7 +556,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>&copy; 2024 Restaurant El Dayaa. Créé avec passion par <a href="https://microdidact.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', fontWeight: '600' }}>Microdidact</a>.</p>
+                <p>&copy; 2026 Restaurant El Dayaa. Créé avec passion par <a href="https://microdidact.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', fontWeight: '600' }}>Microdidact</a>.</p>
             </div>
         </footer>
     );
@@ -522,6 +567,7 @@ function MainLayout() {
         <div className="app">
             <Navbar />
             <Hero />
+            <InfiniteBanner />
             <MenuSection />
             <About />
             <ContactSection />
