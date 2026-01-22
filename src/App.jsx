@@ -43,21 +43,44 @@ const MentionsLegales = () => {
                 <h1>Mentions Légales</h1>
                 <div className="divider"></div>
             </div>
-            <div className="legal-content" style={{ marginTop: '40px', color: 'var(--text-muted)' }}>
+
+            <div className="legal-content" style={{ marginTop: '40px', color: 'var(--text-muted)', lineHeight: '1.6' }}>
+                <p style={{ marginBottom: '20px' }}>
+                    Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l’économie numérique, il est précisé aux utilisateurs du site El Dayaa l’identité des différents intervenants dans le cadre de sa réalisation et de son suivi.
+                </p>
+
                 <div className="legal-block" style={{ marginBottom: '30px' }}>
-                    <h3 style={{ color: 'var(--accent)', marginBottom: '15px' }}>1. Présentation du site</h3>
-                    <p>Propriétaire : Restaurant EL DAYAA</p>
-                    <p>Adresse : 23 Bd Lascrosses, 31000 Toulouse</p>
-                    <p>Téléphone : 05 61 12 22 00</p>
+                    <h3 style={{ color: 'var(--accent)', marginBottom: '15px' }}>Édition du site</h3>
+                    <p>Le présent site, accessible à l’URL https://eldayaa-toulouse.fr (le « Site »), est édité par :</p>
+                    <p>
+                        RESTAURANT LE BEYROUTH (El Dayaa), société au capital de 2 000 euros, inscrite au R.C.S. de Toulouse sous le numéro 504 521 550, dont le siège social est situé au 23 Bd Lascrosses, 31000 Toulouse représenté(e) par Ali CHEHADE dûment habilité(e).
+                    </p>
+                    <p style={{ marginTop: '10px' }}>Le numéro individuel TVA de l’éditeur est : FR39504521550.</p>
                 </div>
+
                 <div className="legal-block" style={{ marginBottom: '30px' }}>
-                    <h3 style={{ color: 'var(--accent)', marginBottom: '15px' }}>2. Hébergement</h3>
-                    <p>Le site est hébergé par [Nom de votre hébergeur]</p>
+                    <h3 style={{ color: 'var(--accent)', marginBottom: '15px' }}>Hébergement</h3>
+                    <p>Le Site est hébergé par la société Vercel Inc., situé au 440 N Barranca Ave #4133 Covina, CA 91723.</p>
                 </div>
+
                 <div className="legal-block" style={{ marginBottom: '30px' }}>
-                    <h3 style={{ color: 'var(--accent)', marginBottom: '15px' }}>3. Propriété intellectuelle</h3>
-                    <p>L'ensemble de ce site relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés.</p>
+                    <h3 style={{ color: 'var(--accent)', marginBottom: '15px' }}>Directeur de publication</h3>
+                    <p>Le Directeur de la publication du Site est Ali CHEHADE.</p>
                 </div>
+
+                <div className="legal-block" style={{ marginBottom: '30px' }}>
+                    <h3 style={{ color: 'var(--accent)', marginBottom: '15px' }}>Nous contacter</h3>
+                    <p>Par téléphone : 05 61 12 22 00</p>
+                    <p>Par courrier : 23 Bd Lascrosses, 31000 Toulouse</p>
+                </div>
+
+                <div className="legal-block" style={{ marginBottom: '30px' }}>
+                    <h3 style={{ color: 'var(--accent)', marginBottom: '15px' }}>Données personnelles</h3>
+                    <p>
+                        Le traitement de vos données à caractère personnel est régi par notre Charte du respect de la vie privée, disponible depuis la section « Charte de Protection des Données Personnelles » conformément au Règlement Général sur la Protection des Données 2016/679 du 27 avril 2016 («RGPD»).
+                    </p>
+                </div>
+
                 <Link to="/" className="btn-primary" style={{ display: 'inline-block', marginTop: '20px' }}>Retour à l'accueil</Link>
             </div>
         </section>
@@ -174,7 +197,7 @@ const Navbar = () => {
             <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
                 <div className="container nav-content">
                     <Link to="/" className="logo-container" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                        <img src={logoTree} alt="El Dayaa Logo" className="logo-tree-img" />
+                        <img src={logoTree} alt="El Dayaa - Restaurant Libanais Toulouse Logo" className="logo-tree-img" />
                         <div className="logo-text">
                             <span className="logo-name">EL DAYAA</span>
                             <span className="logo-tag">MAISON LIBANAISE</span>
@@ -411,7 +434,7 @@ const InfiniteBanner = () => {
             <div className="banner-track">
                 {infiniteImages.map((src, idx) => (
                     <div key={idx} className="banner-item">
-                        <img src={src} alt={`Lebanese Dish ${idx}`} />
+                        <img src={src} alt={`Spécialité libanaise El Dayaa - Plat traditionnel ${idx + 1}`} />
                     </div>
                 ))}
             </div>
@@ -428,7 +451,7 @@ const InfiniteBannerReverse = () => {
             <div className="banner-track reverse">
                 {infiniteImages.map((src, idx) => (
                     <div key={idx} className="banner-item">
-                        <img src={src} alt={`Lebanese Dish Reverse ${idx}`} />
+                        <img src={src} alt={`Cuisine libanaise authentique Toulouse - Plat ${idx + 1}`} />
                     </div>
                 ))}
             </div>
@@ -448,7 +471,7 @@ const About = () => {
             >
                 <div className="about-image">
                     <div className="image-frame">
-                        <img src={foodImage} alt="Lebanese Food" />
+                        <img src={foodImage} alt="Assortiment de Mezzés Libanais traditionnels - Restaurant El Dayaa" />
                     </div>
                     <div className="experience-badge">
                         <span className="years">70</span>
@@ -561,13 +584,12 @@ const Footer = () => {
             <div className="container footer-grid">
                 <div className="footer-info">
                     <div className="logo-container">
-                        <img src={logoTree} alt="El Dayaa Logo" className="logo-tree-img" />
+                        <img src={logoTree} alt="El Dayaa Toulouse Logo" className="logo-tree-img" />
                         <span className="logo-name">EL DAYAA</span>
                     </div>
                     <p>Vivez une expérience culinaire unique au cœur de la cuisine libanaise.</p>
                     <div className="social-links">
-                        <motion.a whileHover={{ y: -5, backgroundColor: 'var(--primary)' }} href="#"><Instagram size={20} /></motion.a>
-                        <motion.a whileHover={{ y: -5, backgroundColor: 'var(--primary)' }} href="#"><Facebook size={20} /></motion.a>
+                        <motion.a whileHover={{ y: -5, backgroundColor: 'var(--primary)' }} href="https://www.facebook.com/el.dayaa/" target="_blank" rel="noopener noreferrer"><Facebook size={20} /></motion.a>
                     </div>
                 </div>
 
