@@ -116,19 +116,11 @@ button {
     gap: 12px;
 }
 
-.logo-circle {
-    width: 45px;
-    height: 45px;
-    border: 2px solid var(--primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: white;
-}
-
-.logo-tree {
-    font-size: 24px;
+.logo-tree-img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    margin-right: 5px;
 }
 
 .logo-text {
@@ -790,8 +782,28 @@ button {
 .btn-call {
     display: inline-block;
     margin-top: 15px;
-    color: var(--primary);
+    background: #008000;
+    color: white !important;
+    padding: 12px 24px;
+    border-radius: 10px;
     font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 128, 0, 0.2);
+}
+
+.btn-call:hover {
+    background: #006400;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 128, 0, 0.3);
+}
+
+.bg-green {
+    background: #008000 !important;
+    box-shadow: 0 4px 15px rgba(0, 128, 0, 0.2) !important;
+}
+
+.bg-green:hover {
+    background: #006400 !important;
 }
 
 .services-list {

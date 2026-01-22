@@ -28,6 +28,7 @@ import repas2 from './assets/repas2.jpg';
 import repas3 from './assets/repas3.jpg';
 import repas4 from './assets/repas4.jpg';
 import menuPDF from './assets/El_Dayaa_Set_de_table_final2.pdf';
+import logoTree from './assets/imagesansfond.png';
 
 // --- Mentions Légales Component ---
 const MentionsLegales = () => {
@@ -173,9 +174,7 @@ const Navbar = () => {
             <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
                 <div className="container nav-content">
                     <Link to="/" className="logo-container" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-                        <div className="logo-circle">
-                            <span className="logo-tree">🌲</span>
-                        </div>
+                        <img src={logoTree} alt="El Dayaa Logo" className="logo-tree-img" />
                         <div className="logo-text">
                             <span className="logo-name">EL DAYAA</span>
                             <span className="logo-tag">MAISON LIBANAISE</span>
@@ -186,7 +185,7 @@ const Navbar = () => {
                         <a href="#home">Accueil</a>
                         <a href="#menu">La Carte</a>
                         <a href="#about">Notre Histoire</a>
-                        <a href="tel:0561122200" className="btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <a href="tel:0561122200" className="btn-primary bg-green" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <Phone size={18} />
                             05 61 12 22 00
                         </a>
@@ -208,7 +207,7 @@ const Navbar = () => {
                             <a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Accueil</a>
                             <a href="#menu" onClick={() => setIsMobileMenuOpen(false)}>La Carte</a>
                             <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>Notre Histoire</a>
-                            <a href="tel:0561122200" className="btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '8px' }} onClick={() => setIsMobileMenuOpen(false)}>
+                            <a href="tel:0561122200" className="btn-primary bg-green" style={{ display: 'flex', alignItems: 'center', gap: '8px' }} onClick={() => setIsMobileMenuOpen(false)}>
                                 <Phone size={18} />
                                 05 61 12 22 00
                             </a>
@@ -562,9 +561,7 @@ const Footer = () => {
             <div className="container footer-grid">
                 <div className="footer-info">
                     <div className="logo-container">
-                        <div className="logo-circle">
-                            <span className="logo-tree">🌲</span>
-                        </div>
+                        <img src={logoTree} alt="El Dayaa Logo" className="logo-tree-img" />
                         <span className="logo-name">EL DAYAA</span>
                     </div>
                     <p>Vivez une expérience culinaire unique au cœur de la cuisine libanaise.</p>
