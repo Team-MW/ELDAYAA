@@ -1,6 +1,6 @@
 :root {
-    --primary: #c41e3a;
-    --primary-hover: #e02444;
+    --primary: #ff1e42;
+    --primary-hover: #ff002b;
     --bg-dark: #111111;
     --bg-card: #1a1a1a;
     --text-main: #f5f5f5;
@@ -215,8 +215,8 @@ button {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom,
-            rgba(0, 0, 0, 0.4) 0%,
-            transparent 50%,
+            rgba(0, 0, 0, 0.85) 0%,
+            rgba(0, 0, 0, 0.75) 50%,
             rgba(17, 17, 17, 1) 100%);
 }
 
@@ -526,7 +526,7 @@ button {
 .about-section {
     padding: 100px 0;
     position: relative;
-    background-image: linear-gradient(rgba(17, 17, 17, 0.3), rgba(17, 17, 17, 0.3)), url('./assets/bacground2.jpg');
+    background-image: linear-gradient(rgba(17, 17, 17, 0.5), rgba(17, 17, 17, 0.5)), url('./assets/bacground2.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

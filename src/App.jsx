@@ -260,7 +260,7 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    L'Authenticité du <span className="text-green">Liban</span> à votre table
+                    L'Authenticité du <span className="text-primary" style={{ textShadow: '0 0 15px rgba(255, 30, 66, 0.4)' }}>Liban</span> à votre table
                 </motion.h1>
                 <motion.p
                     initial={{ opacity: 0 }}
@@ -611,7 +611,7 @@ const Footer = () => {
                     </div>
                     <div className="contact-item">
                         <Phone size={18} />
-                        <span>05 61 12 22 00</span>
+                        <a href="tel:0561122200" style={{ color: 'inherit' }}>05 61 12 22 00</a>
                     </div>
                     <div className="contact-item">
                         <Clock size={18} />
