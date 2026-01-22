@@ -501,13 +501,27 @@ button {
     object-fit: cover;
 }
 
+.banner-track.reverse {
+    animation: infiniteScrollReverse 40s linear infinite;
+}
+
 @keyframes infiniteScroll {
     0% {
         transform: translateX(0);
     }
 
     100% {
-        transform: translateX(calc(-300px * 6 - 30px * 6));
+        transform: translateX(calc(-300px * 4 - 30px * 4));
+    }
+}
+
+@keyframes infiniteScrollReverse {
+    0% {
+        transform: translateX(calc(-300px * 4 - 30px * 4));
+    }
+
+    100% {
+        transform: translateX(0);
     }
 }
 

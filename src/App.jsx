@@ -23,6 +23,11 @@ import {
     ExternalLink
 } from 'lucide-react';
 import foodImage from './assets/side-view-chebureks-kutab-fried-chebureks-with-cheese-herbs-meat-with-sauce-dark-wooden-table.jpg';
+import repas1 from './assets/repas.jpg';
+import repas2 from './assets/repas2.jpg';
+import repas3 from './assets/repas3.jpg';
+import repas4 from './assets/repas4.jpg';
+import menuPDF from './assets/El_Dayaa_Set_de_table_final2.pdf';
 
 // --- Mentions Légales Component ---
 const MentionsLegales = () => {
@@ -181,7 +186,10 @@ const Navbar = () => {
                         <a href="#home">Accueil</a>
                         <a href="#menu">La Carte</a>
                         <a href="#about">Notre Histoire</a>
-                        <a href="#contact" className="btn-primary">Réserver</a>
+                        <a href="tel:0561122200" className="btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <Phone size={18} />
+                            05 61 12 22 00
+                        </a>
                     </div>
 
                     <button className="mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -200,7 +208,10 @@ const Navbar = () => {
                             <a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Accueil</a>
                             <a href="#menu" onClick={() => setIsMobileMenuOpen(false)}>La Carte</a>
                             <a href="#about" onClick={() => setIsMobileMenuOpen(false)}>Notre Histoire</a>
-                            <a href="#contact" className="btn-primary" onClick={() => setIsMobileMenuOpen(false)}>Réserver</a>
+                            <a href="tel:0561122200" className="btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '8px' }} onClick={() => setIsMobileMenuOpen(false)}>
+                                <Phone size={18} />
+                                05 61 12 22 00
+                            </a>
                         </motion.div>
                     )}
                 </AnimatePresence>
@@ -282,6 +293,30 @@ const MenuSection = () => {
                     <span className="script-font gold">Saveurs du Moyen-Orient</span>
                     <h2>Notre Carte</h2>
                     <div className="divider"></div>
+                    <motion.a
+                        href={menuPDF}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn-primary"
+                        style={{
+                            marginTop: '40px',
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '10px',
+                            fontSize: '1.2rem',
+                            padding: '18px 36px',
+                            background: 'var(--accent)',
+                            color: 'var(--bg-dark) !important'
+                        }}
+                        whileHover={{
+                            scale: 1.05,
+                            backgroundColor: '#e5c05b'
+                        }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <ExternalLink size={20} />
+                        Voir le Menu Complet (PDF)
+                    </motion.a>
                 </div>
 
                 <div className="menu-tabs">
@@ -367,14 +402,7 @@ const MenuSection = () => {
 };
 
 const InfiniteBanner = () => {
-    const images = [
-        "https://images.unsplash.com/photo-1541529086526-db283c563270?auto=format&fit=crop&q=80&w=400",
-        "https://images.unsplash.com/photo-1628294895950-9805252327bc?auto=format&fit=crop&q=80&w=400",
-        "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=400",
-        "https://images.unsplash.com/photo-1593001874117-c99c800e3eb7?auto=format&fit=crop&q=80&w=400",
-        "https://images.unsplash.com/photo-1547928576-a4a33237ce35?auto=format&fit=crop&q=80&w=400",
-        "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?auto=format&fit=crop&q=80&w=400"
-    ];
+    const images = [repas1, repas2, repas3, repas4];
 
     // Duplicate list to ensure seamless transition
     const infiniteImages = [...images, ...images];
@@ -385,6 +413,23 @@ const InfiniteBanner = () => {
                 {infiniteImages.map((src, idx) => (
                     <div key={idx} className="banner-item">
                         <img src={src} alt={`Lebanese Dish ${idx}`} />
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+};
+
+const InfiniteBannerReverse = () => {
+    const images = [repas1, repas2, repas3, repas4];
+    const infiniteImages = [...images, ...images];
+
+    return (
+        <div className="infinite-banner" style={{ borderTop: 'none', borderBottom: 'none', paddingTop: 0, paddingBottom: '60px' }}>
+            <div className="banner-track reverse">
+                {infiniteImages.map((src, idx) => (
+                    <div key={idx} className="banner-item">
+                        <img src={src} alt={`Lebanese Dish Reverse ${idx}`} />
                     </div>
                 ))}
             </div>
@@ -497,7 +542,7 @@ const ContactSection = () => {
                     </div>
                     <div className="map-container">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m12!1m3!1d2888.7615951666663!2d1.433888888888889!3d43.60833333333333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb62bf478881%3A0x600b6562accb6d2!2s23%20Bd%20Lascrosses%2C%2031000%20Toulouse!5e0!3m2!1sfr!2sfr!4v1711030000000!5m2!1sfr!2sfr"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2888.7615951666663!2d1.433888888888889!3d43.60833333333333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb62bf478881%3A0x600b6562accb6d2!2s23%20Bd%20Lascrosses%2C%2031000%20Toulouse!5e0!3m2!1sfr!2sfr!4v1711030000000!5m2!1sfr!2sfr"
                             width="100%"
                             height="100%"
                             style={{ border: 0 }}
@@ -571,6 +616,7 @@ function MainLayout() {
             <MenuSection />
             <About />
             <ContactSection />
+            <InfiniteBannerReverse />
             <Footer />
         </div>
     );
