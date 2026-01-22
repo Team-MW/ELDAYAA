@@ -260,7 +260,7 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    L'Authenticité du <span className="text-primary">Liban</span> à votre table
+                    L'Authenticité du <span className="text-green">Liban</span> à votre table
                 </motion.h1>
                 <motion.p
                     initial={{ opacity: 0 }}
@@ -594,7 +594,7 @@ const Footer = () => {
                 </div>
 
                 <div className="footer-links">
-                    <h4>Vite Lu</h4>
+                    <h4>Accès Rapide</h4>
                     <ul>
                         <li><a href="#home">Accueil</a></li>
                         <li><a href="#menu">La Carte</a></li>
